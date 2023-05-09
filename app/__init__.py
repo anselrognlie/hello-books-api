@@ -14,7 +14,7 @@ def create_app(test_config=None):
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     if not test_config:
-        DATABASE_URI_KEY = os.environ.get("DATABASE_URI_KEY")
+        DATABASE_URI_KEY = os.environ.get("DATABASE_URI_KEY", "")
         app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(DATABASE_URI_KEY)
     else:
         app.config["TESTING"] = True
